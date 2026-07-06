@@ -1,0 +1,6 @@
+{
+  "name": "Retro Arcade Hub",
+  "description": "Hub permainan arked retro dengan permainan klasik interaktif, papan markah tinggi, dan kesan bunyi sintetik 8-bit.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

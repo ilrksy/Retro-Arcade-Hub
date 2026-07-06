@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-arcade: "Press Start 2P", system-ui, sans-serif;
+  
+  --color-arcade-pink: #ff007f;
+  --color-arcade-cyan: #00f0ff;
+  --color-arcade-yellow: #ffea00;
+  --color-arcade-purple: #7000ff;
+}
+
+@layer utilities {
+  /* CRT Monitor Screen Scanline Effect */
+  .crt-screen {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .crt-screen::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 10;
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+  }
+
+  .crt-screen::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 11;
+    pointer-events: none;
+  }
+
+  /* Retro blinking effect */
+  .animate-retro-blink {
+    animation: retro-blink 1s steps(2, start) infinite;
+  }
+
+  @keyframes retro-blink {
+    to { visibility: hidden; }
+  }
+
+  /* LED Glow text */
+  .glow-pink {
+    text-shadow: 0 0 5px var(--color-arcade-pink), 0 0 15px var(--color-arcade-pink);
+  }
+  .glow-cyan {
+    text-shadow: 0 0 5px var(--color-arcade-cyan), 0 0 15px var(--color-arcade-cyan);
+  }
+  .glow-yellow {
+    text-shadow: 0 0 5px var(--color-arcade-yellow), 0 0 15px var(--color-arcade-yellow);
+  }
+  .glow-purple {
+    text-shadow: 0 0 5px var(--color-arcade-purple), 0 0 15px var(--color-arcade-purple);
+  }
+}
+
+/* Custom retro pixelated scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0c15;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff007f;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
